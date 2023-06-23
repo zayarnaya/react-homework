@@ -1,0 +1,54 @@
+.review {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 1856px;
+    padding: 24px;
+    border-radius: 8px;
+    background-color: white;
+
+    &__image {
+        width: 100px;
+        height: 100px;
+        overflow: hidden;
+        border-radius: 8px;
+    }
+
+    &__content {
+        width: 1676px;
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+    }
+
+    &__header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 0;
+    }
+
+    &__title {
+        // font-family: 'Roboto', sans-serif;
+        font-size: 20pt;
+        font-weight: 500;
+        line-height: 32px;
+        color: #1B1F23;
+    }
+
+    &__rating {
+        color: #1B1F23;
+        // font-family: 'Roboto', sans-serif;
+        font-size: 20pt;
+        font-weight: 400;
+        line-height: 32px;    
+    }
+
+    &__text {
+        color: #1B1F23;
+        // font-family: 'Roboto', sans-serif;
+        font-size: 16pt;
+        font-weight: 400;
+        line-height: 32px;   
+    }
+}

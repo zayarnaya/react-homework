@@ -1,3 +1,45 @@
+@import 'fonts';
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: #333;
+  padding: 32px 24px;
+
+  &-link {
+      color: white;
+      // font-family: 'Roboto', sans-serif;
+      font-size: 32px;
+      font-weight: 700;
+      text-decoration: none;
+  }
+}
+
+.header__cart {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header__cart_count {
+  height: 28px;
+  width: 28px;
+  border-radius: 8px;
+  background-color: #ff5500;
+  color: white;
+  font-weight: 600;
+  font-size: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center ;
+}
+.header__cart_icon {
+  height: 32px;
+}
+
+
 :root {
   --max-width: 1100px;
   --border-radius: 12px;
@@ -104,4 +146,12 @@ a {
   html {
     color-scheme: dark;
   }
+}
+
+
+/*НАШЕ*/
+
+/*main*/
+.header {
+  
 }

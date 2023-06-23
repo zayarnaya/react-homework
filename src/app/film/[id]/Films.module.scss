@@ -1,0 +1,48 @@
+.films {
+    width: 100%;
+    max-width: 1856px;
+    background-color: white;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 24px;
+
+    &__poster {
+        object-fit: contain;
+        width: 400px;
+        height: 500px;
+        border-radius: 8px;
+        margin-right: 32 px;
+    }
+
+    &__info {
+        padding: 0;
+
+    }
+
+    &__title {
+        font-size: 32pt;
+        font-weight: 500;
+        line-height: 32px;
+        color: #1B1F23;
+    }
+
+    
+    &__text,
+    &__desc {
+        color: #1B1F23;
+        // font-family: 'Roboto', sans-serif;
+        font-size: 16pt;
+        font-weight: 400;
+
+    }
+
+    &__desc {
+        margin-top: 32px;
+        &_header {
+            line-height: 32px;
+        }
+    }
+}
+

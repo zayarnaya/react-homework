@@ -1,0 +1,56 @@
+.select_flyout {
+    width: 360px;
+    position: absolute;
+    z-index: 1500;
+    background-color: white;
+    border-radius: 8px;
+}
+
+.input {
+
+    &__text {
+        border: 1px solid #E1E3E6;
+        border-radius: 8px;
+        width: 360px;
+        height: 40px;
+        --placeholder-color: #999FA6;
+
+        ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+            color: var(--placeholder-color);
+        }
+        :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+           color: var(--placeholder-color);
+           opacity:  1;
+        }
+        ::-moz-placeholder { /* Mozilla Firefox 19+ */
+           color: var(--placeholder-color);
+           opacity:  1;
+        }
+        :-ms-input-placeholder { /* Internet Explorer 10-11 */
+           color: var(--placeholder-color);
+        }
+        ::-ms-input-placeholder { /* Microsoft Edge */
+           color: var(--placeholder-color);
+        }
+        
+        ::placeholder { /* Most modern browsers support this now. */
+           color: var(--placeholder-color);
+        }
+
+        &:focus,
+        &:active {
+            outline: 0;
+            outline-offset: 0;
+            border: 1px solid #FF5500;
+            --placeholder-color: #1B1F23;
+            color: #1B1F23;
+            transition: .3ms;
+        }
+    }
+
+    &_title {
+        color: #1B1F23;
+        font-family: 'SF Pro Text', sans-serif;
+        font-size: 14pt;
+    }
+}
