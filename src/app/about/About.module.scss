@@ -2,7 +2,8 @@
     border-radius: 8px;
     background-color: white;
     width: 100%;
-    max-width: 1856px;
+    max-width: calc(100vw - 96px);
+    padding: 24px;
 }
 
 .title {

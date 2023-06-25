@@ -1,38 +1,44 @@
-.header {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    background-color: #333;
-    padding: 32px 24px;
+// .header {
+//     display: flex;
+//     flex-direction: row;
+//     justify-content: space-between;
+//     background-color: #333;
+//     padding: 32px 24px;
 
-    &-link {
-        color: white;
-        // font-family: 'Roboto', sans-serif;
-        font-size: 32px;
-        font-weight: bold;
-        text-decoration: none;
-    }
-  }
+//     &-link {
+//         color: white;
+//         // font-family: 'Roboto', sans-serif;
+//         font-size: 32px;
+//         font-weight: bold;
+//         text-decoration: none;
+//     }
+//   }
 
-.header__cart {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-}
+// .header__cart {
+//     display: flex;
+//     flex-direction: row;
+//     justify-content: space-between;
+//     align-items: center;
+// }
 
-.header__cart_count {
-    height: 28px;
-    width: 28px;
-    border-radius: 8px;
-    background-color: #ff5500;
-    color: white;
-    font-weight: 600;
-    font-size: 14px;
-    display: flex;
-    justify-content: center;
-    align-items: center ;
-}
-.header__cart_icon {
-    height: 32px;
+// .header__cart_count {
+//     height: 28px;
+//     width: 28px;
+//     border-radius: 8px;
+//     background-color: #ff5500;
+//     color: white;
+//     font-weight: 600;
+//     font-size: 14px;
+//     display: flex;
+//     justify-content: center;
+//     align-items: center ;
+// }
+// .header__cart_icon {
+//     height: 32px;
+// }
+
+.films__list_item {
+    list-style: none;
+    padding: 0;
+    margin-top: 24px;
 }

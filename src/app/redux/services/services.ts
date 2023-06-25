@@ -2,13 +2,13 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 export const movieApi = createApi({
     reducerPath: 'movieApi',
-    baseQuery: fetchBaseQuery({ baseUrl: 'localhost:3000/api/' }),
+    baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:3001/api/' }),
     endpoints: (builder) => ({
         getMovies: builder.query({query: () => 'movies'}),
-        getMovie: builder.query({query: (id: number) => `movie?movieId=${id}`}),
-        getCinema:  builder.query({query: (id: number) => `movies?cinemaId=${id}`}),
+        getMovie: builder.query({query: ({id}) => `movie?movieId=${id}`}),
+        getCinema:  builder.query({query: (id: string) => `movies?cinemaId=${id}`}),
         getAllReviews:  builder.query({query: () => 'reviews'}),
-        getSingleFilmReviews:  builder.query({query: (id: number) => `reviews?movieId=${id}`}),
+        getSingleFilmReviews:  builder.query({query: (id: string) => `reviews?movieId=${id}`}),
 
     }),
 })

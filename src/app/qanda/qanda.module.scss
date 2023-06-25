@@ -1,0 +1,20 @@
+.accordion {
+
+    &__item {
+        background-color: white;
+        border-radius: 8px;
+        padding: 24px;
+        margin-bottom: 32px;
+    }
+
+    &__title {
+        font-size: 24pt;
+        font-weight: 500;
+        border: 0px;
+        background-color: white;
+    }
+
+    &__text {
+        font-size: 16pt;
+    }
+}

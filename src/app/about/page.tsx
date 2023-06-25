@@ -3,6 +3,7 @@ import styles from './About.module.scss'
 
 const About: FC<PropsWithChildren> = ({ ...props }) => {
   return (
+    <main>
     <div className={styles.about}>
       <h1 className={styles.title}>О нас</h1>
       <p className={styles.text}>
@@ -18,6 +19,7 @@ const About: FC<PropsWithChildren> = ({ ...props }) => {
       Сайт был создан 7&nbsp;ноября 2003 года, его основатели &mdash; Виталий Таций и Дмитрий Суханов. Владельцем проекта являлась компания ООО «Билетопоиск», которой принадлежало 60&nbsp;% акций проекта, 40&nbsp;% акций принадлежало её совладельцу &mdash; французской компании ООО AlloCiné. 15 октября 2013 года сервис купила компания «Яндекс» (размер сделки — $80 млн, около 2,6 млрд рублей на то время).
       </p>
     </div>
+    </main>
   )
 }
 
