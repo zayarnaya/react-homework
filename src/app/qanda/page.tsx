@@ -13,7 +13,9 @@ const Accordion = ({ children } : { children: React.ReactNode }) => {
   const [activeGroup, setActiveGroup] = useState<string>();
 
   const switchGroup = useCallback((title: string) => {
-    setActiveGroup(title);
+    setActiveGroup((activeTitle) =>
+      activeTitle === title ? undefined : title
+    );
   }, []);
 
   return (
@@ -26,9 +28,20 @@ const Accordion = ({ children } : { children: React.ReactNode }) => {
 Accordion.Group = function MenuGroup({ children, title } : { children: React.ReactNode, title: string }) {
   const { activeGroup, switchGroup } = useContext(AccordionContext);
   return (
-    <div className={styles.accordion__item}>
+    <div>
+      <button className={styles.input__select_button} onClick={(e) => {
+      switchGroup && switchGroup(title);
+      if (activeGroup === title) {
+        (e.target as HTMLElement).classList.add('active')
+    } else {
+      (e.target as HTMLElement).classList.remove('active')
+    }
+    }}></button>
+      <div className={styles.accordion__item}>
       <button className={styles.accordion__title} onClick={() => switchGroup && switchGroup(title)}><h2>{title}</h2></button>
       {activeGroup === title && <div>{children}</div>}
+      
+    </div>
     </div>
      
 
@@ -45,7 +58,8 @@ const toCart = () => {
 
 export default function CompoundComponent() {
   return (
-    <>
+    <div className={styles.accordion_container}>
+      <div className={styles.accordion__header}><h1>Вопросы-ответы</h1></div>
       <Accordion>
         <Accordion.Group title="Что такое Билетопоиск?">
           <Accordion.Item title="Мы — крупнейший сервис о кино в рунете. На нем вы сможете посмотреть фильмы и сериалы, купить билеты в кино, узнать рейтинги популярных видео и интересные факты, поставить фильмам оценки, написать рецензии и дополнить описание фильмов." >{}</Accordion.Item>
@@ -60,6 +74,6 @@ export default function CompoundComponent() {
           <Accordion.Item title="Пока никак. Но вы можете посмотреть на чужие отзывы!">{}</Accordion.Item>
         </Accordion.Group>
       </Accordion>
-    </>
+    </div>
   );
 }

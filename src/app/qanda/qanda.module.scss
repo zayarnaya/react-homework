@@ -1,15 +1,38 @@
 .accordion {
+    &_container {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    &__header {
+        background-color: white;
+        border-radius: 8px;
+        padding: 24px;
+        margin-bottom: 32px;
+
+        h1 {
+            color: #1B1F23;
+            font-size: 32pt;
+            font-weight: 700;
+        }
+    }
 
     &__item {
         background-color: white;
         border-radius: 8px;
         padding: 24px;
         margin-bottom: 32px;
+
     }
 
     &__title {
-        font-size: 24pt;
-        font-weight: 500;
+        h2 {
+            font-size: 24pt;
+            font-weight: 700;
+        }
+
         border: 0px;
         background-color: white;
     }
@@ -17,4 +40,20 @@
     &__text {
         font-size: 16pt;
     }
+}
+
+.input__select_button {
+    width: 32px;
+    height: 32px;
+    border: 0;
+    background-color: white;
+    // border-radius: 6px;
+    background-image: url('../../../public/select.svg');
+    background-size: contain;
+    position: absolute; 
+    right: 48px;
+    margin-top: 24px;
+    z-index: 1;
+
+
 }

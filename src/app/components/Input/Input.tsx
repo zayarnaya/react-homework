@@ -11,7 +11,7 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
     value?: string;
     label?: string;
     select?: boolean;
-    onButtonClick?: (e) => void;
+    onButtonClick?: () => void;
     // ref?: any;
 }
 
