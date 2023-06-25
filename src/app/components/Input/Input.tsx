@@ -3,17 +3,20 @@
 import classNames from "classnames";
 import { FC, InputHTMLAttributes, forwardRef } from "react";
 import styles from './Input.module.scss';
+import './Input.scss';
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
     className?: string;
     placeholder?: string;
     value?: string;
     label?: string;
+    select?: boolean;
+    onButtonClick?: (e) => void;
     // ref?: any;
 }
 
 export const Input = forwardRef<HTMLInputElement, InputProps>(function Input(props: InputProps, ref: any) {
-  const {className, label, onChange, ...rest} = props;
+  const {className, label, onButtonClick, select, ...rest} = props;
   // console.log(ref);
     return (
         <div className={styles.input}>
@@ -21,11 +24,11 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(function Input(pro
           <input
 
             {...rest}
-            onChange={onChange}
             ref={ref}
             className={classNames('input__text', className, styles.input__text)}
             type="text"
           />
+          {!!select && <button className={styles.input__select_button} onClick={onButtonClick}></button>}
       </div>
     )
 })

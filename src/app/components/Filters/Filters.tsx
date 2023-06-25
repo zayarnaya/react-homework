@@ -9,13 +9,13 @@ import { useDispatch } from 'react-redux';
 import { filterSliceActions } from '@/app/redux/features/filters';
 
 export const filter = (data: film[], filter: 'title' | 'genre', query: string): film[] => {
-    console.log(data);
+    if (!query) return data;
     const res: film[] = [];
-
         data.forEach((dataItem: film) => {
         if (dataItem[filter].toLowerCase().includes(query.toLowerCase())) res.push(dataItem);
     })
-    return res || data;    
+    console.log(res);
+    return res;    
 }
 
 export const filterByCinema = (data: film[], query: string[]): film[] => {

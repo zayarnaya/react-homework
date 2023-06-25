@@ -66,9 +66,9 @@ export default function Home() {
     }
     // console.log('INPUT', titleInput);
     titleInput?.addEventListener("input", (e) => {setTitleQuery(e.target.value)})
-    genreSelect?.addEventListener('focus', () => {setIsOpenGenre(true)})
+    genreSelect?.addEventListener('focus', (e) => {setIsOpenGenre(true); (e.target as HTMLInputElement).classList.add('active'); (e.target as HTMLInputElement).previousElementSibling?.classList.add('active'); });
     // genreSelect?.addEventListener('blur', () => {setIsOpenGenre(false)})
-    cinemaSelect?.addEventListener('focus', () => {setIsOpenCinema(true)})
+    cinemaSelect?.addEventListener('focus', (e) => {setIsOpenCinema(true);  (e.target as HTMLInputElement).classList.add('active'); (e.target as HTMLInputElement).previousElementSibling?.classList.add('active');})
     // cinemaSelect?.addEventListener('blur', () => {setIsOpenCinema(false)})
         
     setList(data);
@@ -96,8 +96,11 @@ export default function Home() {
   let filtered = [];
   if(!!list) {
       filtered = filter(list, 'title', titleQuery);
-      if (!!genreQuery)filtered = filter(filtered, 'genre', genreQuery);
-      if (!!cinemaFilms)filtered = cinemaFilms;
+      filtered = filter(filtered, 'genre', genreQuery);
+      if (!!cinemaQuery) {
+        // console.log(cinemaFilms);
+        filtered = cinemaFilms;
+      }
 
       console.log(filtered);
   }
@@ -106,7 +109,9 @@ export default function Home() {
 <>
       {/* <Filters ref={titleRef}/> */}
       {!!isOpenCinema && createPortal(
-        <div className={styles.select__flyout} style={{position: 'absolute', top: cinemaCoords[0], left: cinemaCoords[1]}}>
+        <div onBlur={() => {
+          setIsOpenCinema(false);
+        }} className={styles.select__flyout} style={{top: cinemaCoords[0] + 4, left: cinemaCoords[1]}}>
           <button className={styles.select__item} onClick={() => {
             setCinemaQuery('');
             setCinemaId('');
@@ -121,7 +126,9 @@ export default function Home() {
         </div>, document.body
       )}
       {!!isOpenGenre && createPortal(
-        <div className={styles.select__flyout} style={{position: 'absolute', top: genreCoords[0], left: genreCoords[1]}}>
+        <div onBlur={() => {
+          setIsOpenGenre(false);
+        }} className={styles.select__flyout} style={{top: genreCoords[0] + 4, left: genreCoords[1]}}>
           <button className={styles.select__item} onClick={(e) => {
                         // console.log(genreRef.current);
                         // genreRef.current?.focus();
@@ -131,8 +138,6 @@ export default function Home() {
           }}>Не выбран</button>
           {Object.keys(genres).map((g, index) => {
             return <button key={g + index} id={g} className={styles.select__item} onClick={(e) => {
-              console.log('!!!!!!!!!!!!!!!!!', (e.target as Element).textContent);
-
               setGenreQuery((e.target as Element).id);
 
             }}>{genres[g]}</button>
@@ -141,8 +146,16 @@ export default function Home() {
       )}
       <div className={styles.filters}>
       <Input ref={titleRef} label={'Название'} placeholder={'Введите название'} onChange={(e) => {setTitleQuery(e.target.value)  }}/>
-      <Input ref={genreRef} label={'Жанр'} placeholder={genreQuery ? genres[genreQuery] : 'Выберите жанр'}/>
-      <Input ref={cinemaRef} label={'Кинотеатр'} placeholder={cinemaQuery || 'Выберите кинотеатр'}/>
+      <Input onButtonClick={(e) => {
+        if (!isOpenGenre) {
+          (e.target as HTMLElement).classList.add('active');
+        } else {
+          (e.target as HTMLElement).classList.remove('active');
+        }
+        setIsOpenGenre(!isOpenGenre);
+        
+      }} select={true} ref={genreRef} label={'Жанр'} placeholder={genreQuery ? genres[genreQuery] : 'Выберите жанр'}/>
+      <Input select={true} ref={cinemaRef} label={'Кинотеатр'} placeholder={cinemaQuery || 'Выберите кинотеатр'}/>
         </div>
       {!!data && <Films films = {filtered}/>}
 

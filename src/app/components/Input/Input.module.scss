@@ -6,6 +6,7 @@
         width: 360px;
         height: 40px;
         padding: 5px;
+        box-sizing: border-box;
         --placeholder-color: #999FA6;
 
         ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
@@ -45,5 +46,19 @@
         color: #1B1F23;
         font-family: 'SF Pro Text', sans-serif;
         font-size: 14pt;
+    }
+
+    &__select_button {
+        width: 20px;
+        height: 20px;
+        border: 0;
+        background-color: white;
+        // border-radius: 6px;
+        background-image: url('../../../../public/select.svg');
+        position: absolute; 
+        left: 351px;
+        margin-top: 9px;
+
+
     }
 }
