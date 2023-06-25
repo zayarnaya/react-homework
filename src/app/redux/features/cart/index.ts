@@ -1,6 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-export type cartState = Record<string, number>;
+export type cartItemsState = Record<string, {
+    genre: string;
+    posterUrl: string;
+    title: string;
+}>;
+
+export type cartState = Record<string, number>
 
 const initialState: cartState = {};
 
@@ -41,6 +47,33 @@ export const totalSlice = createSlice({
             }
             state.total--;
         }),
+        remove: ((state, {payload}) => {
+            if (state.total < payload) {
+                state.total = 0;
+            } else {
+                state.total -= payload;
+            }
+        })
+    }
+})
+
+const itemsInit: cartItemsState = {};
+
+export const cartItemsSlice = createSlice({
+    initialState: itemsInit,
+    name: "cartItems",
+    reducers: {
+        add: (state, {payload}) => {
+            state[payload.id] = {
+                title: payload.title,
+                genre: payload.genre,
+                posterUrl: payload.posterUrl,
+            }
+        },
+        delete: (state, {payload}) => {
+            delete state[payload.id];
+        }
+       
     }
 })
 
@@ -49,3 +82,6 @@ export const cartActions = cartSlice.actions; // а вот что это?
 
 export const totalReducer = totalSlice.reducer;
 export const totalActions = totalSlice.actions; // а вот что это?
+
+export const cartItemsReducer = cartItemsSlice.reducer;
+export const cartItemsActions = cartItemsSlice.actions;

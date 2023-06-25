@@ -1,0 +1,27 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
+}
+
+.list {
+    list-style: none;
+    padding: 0;
+
+    &__item {
+        margin-bottom: 16px;
+    }
+}
+
+.total__container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: calc(100% - 48px);
+    background-color: white;
+    border-radius: 8px;
+    padding: 24px;
+    font-size: 20pt;
+    font-weight: 500;
+}

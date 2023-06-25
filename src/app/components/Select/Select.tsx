@@ -23,7 +23,7 @@ export const SelectField: FC<SelectFieldProps> = ({...selectProps}) => {
     )
 }
 export const Select: FC<SelectProps> = ({...props}) => {
-    const {className, label, ...rest} = props;
+    const {className, label, children, ...rest} = props;
     return (
         <>
         
@@ -38,9 +38,7 @@ export const Select: FC<SelectProps> = ({...props}) => {
       </div>
       {createPortal(
         <SelectField>
-            ылвопр
-            выподрывп
-            ывпдор
+            {children}
         </SelectField>,
         document.body
       )}

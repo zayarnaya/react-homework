@@ -19,18 +19,10 @@
 }
 
 .no {
-    padding: 8px 16px;
-    height: 40px;
+    @extend .yes;
     border: 1px solid #FF5500;
-    box-shadow: 0 0 0 0;
-    border-radius: 8px;
     background-color: rgba(0, 0, 0, 0);
     color: #FF5500;
-    // font-family: 'Roboto', sans-serif;
-    font-size: 14pt;
-    font-weight: 400;
-    line-height: 20px;
-    text-align: center;
 
     &:hover {
         border: 1px solid #E94E00;
@@ -67,21 +59,9 @@
 }
 
 .minus {
-    width: 20px;
-    height: 20px;
-    border: 0px;
-    box-shadow: 0 0 0 0;
-    border-radius: 4px;
+    @extend .plus;
     background-color: #FF5500;
     background-image: url('../../../../public/minus.svg');
-    background-repeat: no-repeat;
-    background-position: center;
-    color: white;
-    // font-family: 'Roboto', sans-serif;
-    font-size: 14pt;
-    font-weight: 400;
-    line-height: 20px;
-    text-align: center;
 
     &:hover {
         background-color: #E94E00;
@@ -97,7 +77,16 @@
     background-image: url('./../../../../public/close.svg');
     background-repeat: no-repeat;
     background-position: center;
+    background-size: contain;
     background-color: rgba(0, 0, 0, 0);
     width: 20px;
     height: 20px;
+    border: 0px;
+    box-shadow: 0 0 0;
+    cursor: pointer;
+}
+.close  {
+    @extend .reset;
+    width: 16px;
+    height: 16px;
 }

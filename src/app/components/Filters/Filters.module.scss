@@ -1,0 +1,11 @@
+.filters {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    background-color: white;
+    border-radius: 8px;
+    padding: 24px;
+    position: sticky;
+    top: 150px;
+    margin-right: 32px;
+}

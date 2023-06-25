@@ -1,0 +1,32 @@
+.popup {
+  --width: 344px;
+  --height: 168px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: absolute;
+  z-index: 1600;
+  top: calc(100vh / 2 - var(--height) / 2);
+  left: calc(100vw / 2 - var(--width) / 2);
+  width: var(--width);
+  height: var(--height);
+  padding: 24px;
+  background-color: white;
+  border-radius: 8px;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.button_close {
+  position: absolute;
+  z-index: 1700;
+  left: calc(var(--width) + 10px);
+}
+
+.margin {
+  margin-right: 8px;
+}
