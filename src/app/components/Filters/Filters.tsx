@@ -103,6 +103,7 @@ export const GenreFilter = forwardRef<HTMLInputElement, GenreFilterProps>(
               }}>
               <Input
                 onButtonClick={toggleVisibility}
+                onFocus={turnOff}
                 select={true}
                 ref={ref}
                 label={'Жанр'}
@@ -213,6 +214,7 @@ export const CinemaFilter = forwardRef<HTMLInputElement, CinemaFilterProps>(
                 label={'Кинотеатр'}
                 placeholder={cinemaQuery || 'Выберите кинотеатр'}
                 active={isOpenCinema}
+                onFocus={turnOff}
               />
               <div className={styles.select__flyout}>
                 <button

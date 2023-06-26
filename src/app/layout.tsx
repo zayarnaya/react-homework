@@ -25,7 +25,6 @@ export default function RootLayout({
     <html lang="en">
       <body className={roboto.className}>
         <StoreProvider>
-          {/* <div className='empty'></div> */}
           <header className="header">
             <div>
               <Link href="/" className="header-link">
