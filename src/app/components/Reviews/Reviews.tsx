@@ -35,7 +35,7 @@ const Review: FC<ReviewProps> = ({...props}) => {
 <DefaultImage />
                     <div className={styles.review__content}>
                         <div className={styles.review__header}>
-                            <title className={styles.review__title}>{name}</title>
+                            <h3 className={styles.review__title}>{name}</h3>
                             <div className={styles.review__rating}>Оценка: <strong>{rating}</strong></div>
                         </div>
                         <div className={styles.review_text}>{text}</div>
@@ -49,8 +49,8 @@ export const Reviews = ({...props}) => {
     const { id } = props;
     const { data, isLoading, error } = useGetSingleFilmReviewsQuery(id);
     return (
-        <ul>{!!data && data.map(review => 
-        <li key={review.id}><Review {...review}/></li>)}</ul>
+        <ul className={styles.reviews__list}>{!!data && data.map((review: ReviewProps) => 
+        <li key={review.id} className={styles.reviews__list_item}><Review {...review}/></li>)}</ul>
         
     )
 

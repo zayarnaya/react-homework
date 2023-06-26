@@ -1,8 +1,9 @@
 .review {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    width: 1856px;
+    justify-content: flex-start;
+    max-width: 1856px;
+    box-sizing: border-box;
     padding: 24px;
     border-radius: 8px;
     background-color: white;
@@ -15,10 +16,14 @@
     }
 
     &__content {
-        width: 1676px;
+        width: 100%;
+        max-width: 1676px;
+        box-sizing: border-box;
+
         display: flex;
         flex-direction: column;
         padding: 0;
+        padding-left: 24px;
     }
 
     &__header {
@@ -31,9 +36,11 @@
     &__title {
         // font-family: 'Roboto', sans-serif;
         font-size: 20pt;
-        font-weight: 500;
+        font-weight: 700;
         line-height: 32px;
         color: #1B1F23;
+        margin: 0;
+        margin-bottom: 32px;
     }
 
     &__rating {
@@ -51,4 +58,20 @@
         font-weight: 400;
         line-height: 32px;   
     }
+}
+
+.reviews {
+    &__list {
+        width: 100%;
+        max-width: 1856px;
+        box-sizing: border-box;
+        padding: 0;
+        &_item {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 24px;
+        }
+    }
+    
+    
 }

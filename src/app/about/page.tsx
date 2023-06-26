@@ -1,7 +1,6 @@
-import { FC, PropsWithChildren } from 'react'
 import styles from './About.module.scss'
 
-const About: FC<PropsWithChildren> = ({ ...props }) => {
+const About = () => {
   return (
     <main>
     <div className={styles.about}>

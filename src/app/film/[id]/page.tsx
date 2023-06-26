@@ -1,6 +1,6 @@
 'use client'
 
-import { FC, PropsWithChildren } from "react";
+import { FC, PropsWithChildren, useEffect, useState } from "react";
 import styles from './Films.module.scss';
 import Image from "next/image";
 import { TicketCardCounter } from "@/app/components/TicketCard/TicketCard";
@@ -10,13 +10,23 @@ import { Reviews } from "@/app/components/Reviews/Reviews";
 
 
 interface FilmsProps extends PropsWithChildren {
-    id: string;
+    id?: string;
 }
 
 const Films: FC<FilmsProps> = ({ ... props}) => {
-    const id = props.id;
+
+    const url = new URL(window.location.href);
+    const urlId = url.pathname.replace('/film/', '');
+    const id = urlId == '/' ? '' : urlId;
+    useEffect(() => {
+        console.log(id);
+    }, [id])
+    console.log('___________________');
+    console.log(id);
     const { data, isLoading, error } = useGetMovieQuery({id});
-    console.log(typeof useGetMovieQuery);
+    if (isLoading) {
+        return (<span>И тут тоже подождем...</span>)
+    }
     if (error) console.log(error);
     console.log('FILM', data);
     const metadata = {
@@ -24,7 +34,7 @@ const Films: FC<FilmsProps> = ({ ... props}) => {
         description: `Описание фильма`,
     }
     return (
-        <>{!!data && 
+        <div className={styles.film}>{!!data && 
             <div className={styles.films}>
             <Image 
                 loader ={ () => data.posterUrl}
@@ -36,8 +46,8 @@ const Films: FC<FilmsProps> = ({ ... props}) => {
             />
             <div className={styles.films__info}>
                 <div className={styles.films__header}>
-                    <h1 className={styles.films__title}></h1>
-                    {/* <TicketCardCounter /> */}
+                    <h1 className={styles.films__title}>{data.title}</h1>
+                    <TicketCardCounter {...data}/>
                 </div>
                 <div className={styles.films__text}>
                     {!!data.genre && <p><strong>Жанр:</strong> {data.genre}</p>}
@@ -50,6 +60,7 @@ const Films: FC<FilmsProps> = ({ ... props}) => {
                     </div>}
 
                 </div>
+                {/* <TicketCardCounter {...data}/> */}
             </div>
         </div>
 
@@ -58,17 +69,22 @@ const Films: FC<FilmsProps> = ({ ... props}) => {
                 
 
 
-        </>
+        </div>
         
     )
 }
 
 const Film = () => {
-    const url = new URL(window.location.href);
-    const urlId = url.pathname.replace('/film/', '');
+    const [id, setID] = useState('');
+    useEffect(() => {
+        const url = new URL(window.location.href);
+        const urlId = url.pathname.replace('/film/', '');
+        setID(urlId);
+    },[]);
     return (
-        <Films id={urlId} />
+        <Films id={id} />
     )
+   
 }
 
 export default Film;

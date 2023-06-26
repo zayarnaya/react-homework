@@ -1,6 +1,7 @@
+import { film } from "@/app/components/Films/Films";
 import { createSlice } from "@reduxjs/toolkit";
 
-export type movies = Record<string, any>;
+export type movies = Record<string, film>;
 
 const initialState: movies = {};
 
@@ -12,7 +13,7 @@ export const moviesSlice = createSlice({
             state[payload.id] = payload;
         }),
         addAll: ((state, {payload}) => {
-            payload.forEach(item => {
+            payload.forEach((item: film) => {
                 state[item.id] = item;
             })
         })

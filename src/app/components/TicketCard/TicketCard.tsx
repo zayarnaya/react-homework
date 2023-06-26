@@ -90,9 +90,14 @@ export const TicketCardCounter: FC<TicketCardCounter> = ({...countProps}) => {
             <div className={styles.ticket_card__counter_form}>
                 <Button variant='minus' disabled={isMinusDisabled} onClick={(e: MouseEvent) => {
                     e.preventDefault();
-                    dispatch(cartActions.minus(id))
-                    dispatch(totalActions.minus());
-                    // пока не будем удаление писать
+                    if (amount === 1) {
+                        setIsPopupOpen(true);
+                    } else {
+                        dispatch(cartActions.minus(id))
+                        dispatch(totalActions.minus());
+                        // пока не будем удаление писать
+                    }
+
 
                 } }></Button>
                 <span className={styles.ticket_card__amount}>{amount ? amount : 0}</span>
