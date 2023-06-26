@@ -1,69 +1,63 @@
 .film {
-    width: 100%;
-    max-width: 1856px;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
+  width: 100%;
+  max-width: 1856px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
 }
 .films {
-    width: 100%;
-    max-width: 1856px;
-    box-sizing: border-box;
-    background-color: white;
+  width: 100%;
+  max-width: 1856px;
+  box-sizing: border-box;
+  background-color: white;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 24px;
+
+  &__poster {
+    object-fit: contain;
+    width: 400px;
+    height: 500px;
     border-radius: 8px;
+    margin-right: 8px;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    padding: 0 24px;
+    max-width: 100%;
+  }
+
+  &__header {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding: 24px;
+  }
 
-    &__poster {
-        object-fit: contain;
-        width: 400px;
-        height: 500px;
-        border-radius: 8px;
-        margin-right: 8px;
+  &__title {
+    font-size: 32pt;
+    font-weight: 500;
+    line-height: 32px;
+    color: #1b1f23;
+    max-width: 70%;
+    box-sizing: border-box;
+    margin-top: 0;
+  }
+
+  &__text,
+  &__desc {
+    color: #1b1f23;
+    font-size: 16pt;
+    font-weight: 400;
+  }
+
+  &__desc {
+    margin-top: 32px;
+    &_header {
+      line-height: 32px;
     }
-
-    &__info {
-        display: flex;
-        flex-direction: column;
-        padding: 0 24px;
-        max-width: 100%;
-        // padding-left: 32px;
-    }
-
-    &__header {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-    }
-
-    &__title {
-        font-size: 32pt;
-        font-weight: 500;
-        line-height: 32px;
-        color: #1B1F23;
-        max-width: 70%;
-        box-sizing: border-box;
-        margin-top: 0;
-
-    }
-
-    
-    &__text,
-    &__desc {
-        color: #1B1F23;
-        // font-family: 'Roboto', sans-serif;
-        font-size: 16pt;
-        font-weight: 400;
-
-    }
-
-    &__desc {
-        margin-top: 32px;
-        &_header {
-            line-height: 32px;
-        }
-    }
+  }
 }
-

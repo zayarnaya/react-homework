@@ -2,7 +2,7 @@
 
 import styles from '../app/components/Filters/Filters.module.scss'
 import { useGetCinemaQuery, useGetMoviesQuery } from './redux/services/services'
-import './page.scss'
+
 import { useEffect, useRef, useState } from 'react'
 import {
   CinemaFilter,
@@ -11,7 +11,6 @@ import {
   filter,
 } from './components/Filters/Filters'
 import { useDispatch } from 'react-redux'
-import { moviesActions } from './redux/features/movies'
 import { Films, film } from './components/Films/Films'
 
 export default function Home() {
@@ -46,8 +45,6 @@ export default function Home() {
       </main>
     )
   }
-
-  !!data && dispatch(moviesActions.addAll(data))
 
   let filtered: film[] = []
   if (!!list) {

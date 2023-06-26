@@ -1,23 +1,21 @@
 .about {
-    border-radius: 8px;
-    background-color: white;
-    width: 100%;
-    max-width: calc(100vw - 96px);
-    padding: 24px;
+  border-radius: 8px;
+  background-color: white;
+  width: 100%;
+  max-width: calc(100vw - 96px);
+  padding: 24px;
 }
 
 .title {
-    // font-family: 'Roboto', sans-serif;
-    font-size: 32pt;
-    font-weight: 500;
-    line-height: 32px;
-    color: #1B1F23;
+  font-size: 32pt;
+  font-weight: 500;
+  line-height: 32px;
+  color: #1b1f23;
 }
 
 .text {
-    margin-top: 24px;
-    color: #1B1F23;
-    // font-family: 'Roboto', sans-serif;
-    font-size: 16pt;
-    font-weight: 400; 
+  margin-top: 24px;
+  color: #1b1f23;
+  font-size: 16pt;
+  font-weight: 400;
 }

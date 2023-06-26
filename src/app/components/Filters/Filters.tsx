@@ -59,7 +59,6 @@ export const NameFilter = forwardRef<HTMLInputElement, NameFilterProps>(
 export interface GenreFilterProps {
   isOpenGenre: boolean
   genreQuery: string
-  // genreCoords: number[]
   makeQuery: MouseEventHandler
   makeEmptyQuery: MouseEventHandler
   toggleVisibility: MouseEventHandler
@@ -108,6 +107,7 @@ export const GenreFilter = forwardRef<HTMLInputElement, GenreFilterProps>(
                 ref={ref}
                 label={'Жанр'}
                 placeholder={genreQuery ? genres[genreQuery] : 'Выберите жанр'}
+                active={isOpenGenre}
               />
               <div className={styles.select__flyout}>
                 <button
@@ -138,8 +138,10 @@ export const GenreFilter = forwardRef<HTMLInputElement, GenreFilterProps>(
             ref={ref}
             label={'Жанр'}
             placeholder={genreQuery ? genres[genreQuery] : 'Выберите жанр'}
+            active={isOpenGenre}
           />
         )}
+        {isOpenGenre && <div className={styles.placeholder}></div>}
       </>
     )
   }
@@ -210,6 +212,7 @@ export const CinemaFilter = forwardRef<HTMLInputElement, CinemaFilterProps>(
                 ref={ref}
                 label={'Кинотеатр'}
                 placeholder={cinemaQuery || 'Выберите кинотеатр'}
+                active={isOpenCinema}
               />
               <div className={styles.select__flyout}>
                 <button
@@ -240,6 +243,7 @@ export const CinemaFilter = forwardRef<HTMLInputElement, CinemaFilterProps>(
             ref={ref}
             label={'Кинотеатр'}
             placeholder={cinemaQuery || 'Выберите кинотеатр'}
+            active={isOpenCinema}
           />
         )}
       </>

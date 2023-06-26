@@ -1,0 +1,15 @@
+.films {
+  &__list {
+    margin-top: 0;
+    padding: 0;
+    width: 100%;
+    box-sizing: border-box;
+    &_item {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 24px;
+      min-width: 100%;
+      box-sizing: border-box;
+    }
+  }
+}

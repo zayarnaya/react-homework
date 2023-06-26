@@ -10,6 +10,7 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   value?: string
   label?: string
   select?: boolean
+  active?: boolean
   onButtonClick?: (e: MouseEvent) => void
 }
 
@@ -17,7 +18,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
   props: InputProps,
   ref: any
 ) {
-  const { className, label, onButtonClick, select, ...rest } = props
+  const { active, className, label, onButtonClick, select, ...rest } = props
   return (
     <div className={styles.input}>
       {!!label && <p className={styles.input__title}>{label}</p>}
@@ -29,7 +30,10 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
       />
       {!!select && (
         <button
-          className={classNames(styles.input__select_button, 'turning')}
+          className={classNames(
+            styles.input__select_button,
+            active && styles.input__select_button_active
+          )}
           onClick={onButtonClick}></button>
       )}
     </div>

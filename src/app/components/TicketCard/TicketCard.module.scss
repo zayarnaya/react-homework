@@ -1,65 +1,67 @@
 .ticket_card {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 24px;
+  background-color: white;
+  border-radius: 8px;
+
+  box-sizing: border-box;
+
+  &__poster {
+    width: 100px;
+    height: 120px;
+    border-radius: 8px;
+    margin-right: 24px;
+    object-fit: cover;
+  }
+
+  &__info {
+    padding: 0;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    padding: 24px;
-    background-color: white;
-    border-radius: 8px;
+  }
 
-    &__poster {
-        width: 100px;
-        height: 120px;
-        border-radius: 8px;
-        margin-right: 24px;
-        object-fit: cover;
+  &__desc {
+    padding: 0;
+  }
+
+  &__title {
+    font-family: 'SF Pro Text', sans-serif;
+    font-size: 20pt;
+    font-weight: 600;
+    line-height: 32px;
+    color: #1b1f23;
+  }
+
+  &__text {
+    color: #1b1f23;
+    font-family: 'SF Pro Text', sans-serif;
+    font-size: 16pt;
+    font-weight: 400;
+    font-style: italic;
+    line-height: 32px;
+  }
+
+  &__counter {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+
+    &_form {
+      display: flex;
+      width: 70px;
+      height: 20px;
+      padding: 0;
+      margin-left: 24px;
     }
 
-    &__info {
-        padding: 0;
-        display: flex;
-        flex-direction: row;
+    &_close {
+      margin-left: 24px;
     }
+  }
 
-    &__desc {
-        padding: 0;
-    }
-
-    &__title {
-        font-family: 'SF Pro Text', sans-serif;
-        font-size: 20pt;
-        font-weight: 600;
-        line-height: 32px;
-        color: #1B1F23;
-    }
-
-    &__text {
-        color: #1B1F23;
-        font-family: 'SF Pro Text', sans-serif;
-        font-size: 16pt;
-        font-weight: 400;
-        font-style: italic;
-        line-height: 32px;   
-    }
-
-    &__counter {
-        display: flex;
-        flex-direction: row;
-        justify-content: flex-end;
-
-        &_form {
-            display: flex;
-            width: 70px;
-            height: 20px;
-            padding: 0;
-            margin-left: 24px;
-        }
-
-        &_close {
-            margin-left: 24px;
-        }
-    }
-
-    &__amount {
-        margin: 0 8px;
-    }
+  &__amount {
+    margin: 0 8px;
+  }
 }

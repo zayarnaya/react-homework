@@ -1,6 +1,6 @@
 export const genres: Record<string, string> = {
-    comedy: 'комедия',
-    horror: 'ужасы',
-    fantasy: 'фэнтези',
-    action: 'боевик',
+  comedy: 'комедия',
+  horror: 'ужасы',
+  fantasy: 'фэнтези',
+  action: 'боевик',
 }

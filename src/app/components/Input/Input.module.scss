@@ -9,30 +9,24 @@
     --placeholder-color: #999fa6;
 
     ::-webkit-input-placeholder {
-      /* WebKit, Blink, Edge */
       color: var(--placeholder-color);
     }
     :-moz-placeholder {
-      /* Mozilla Firefox 4 to 18 */
       color: var(--placeholder-color);
       opacity: 1;
     }
     ::-moz-placeholder {
-      /* Mozilla Firefox 19+ */
       color: var(--placeholder-color);
       opacity: 1;
     }
     :-ms-input-placeholder {
-      /* Internet Explorer 10-11 */
       color: var(--placeholder-color);
     }
     ::-ms-input-placeholder {
-      /* Microsoft Edge */
       color: var(--placeholder-color);
     }
 
     ::placeholder {
-      /* Most modern browsers support this now. */
       color: var(--placeholder-color);
     }
 
@@ -58,11 +52,15 @@
     height: 20px;
     border: 0;
     background-color: white;
-    // border-radius: 6px;
     background-image: url('../../../../public/select.svg');
     position: absolute;
-    // left: 351px;
     margin-top: 9px;
     right: 48px;
+    transition: ease-in-out 0.4s;
+
+    &_active {
+      transform: rotate(0.5turn);
+      transition: ease-in-out 0.4s;
+    }
   }
 }
