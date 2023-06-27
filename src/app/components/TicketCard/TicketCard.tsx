@@ -162,6 +162,8 @@ export const TicketCard: FC<TicketCardProps> = ({ ...props }) => {
           width="300"
           height="450"
           className={styles.ticket_card__poster}
+          placeholder={'blur'}
+          blurDataURL={posterUrl}
         />
         <div className={styles.ticket_card__desc}>
           <h2 className={styles.ticket_card__title}>

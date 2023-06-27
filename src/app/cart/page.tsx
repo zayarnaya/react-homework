@@ -54,6 +54,8 @@ const Cart = () => {
         height={100}
         alt={'котик'}
         className={styles.catic}
+        placeholder={'blur'}
+        blurDataURL={'/04.gif'}
       />
     </>
   )

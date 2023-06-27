@@ -37,6 +37,8 @@ const Films: FC<FilmsProps> = ({ ...props }) => {
             width="300"
             height="450"
             className={styles.films__poster}
+            placeholder={'blur'}
+            blurDataURL={data.posterUrl}
           />
           <div className={styles.films__info}>
             <div className={styles.films__header}>

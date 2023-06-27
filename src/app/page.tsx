@@ -10,25 +10,28 @@ import {
   NameFilter,
   filter,
 } from './components/Filters/Filters'
-import { useDispatch } from 'react-redux'
 import { Films, film } from './components/Films/Films'
+import useDebounce from './utils/useDebounce'
 
 export default function Home() {
   const [list, setList] = useState<film[]>()
   const [titleQuery, setTitleQuery] = useState('')
+  const [debouncedTitleQuery, setDebouncedTitleQuery] = useState('')
   const [genreQuery, setGenreQuery] = useState('')
   const [cinemaQuery, setCinemaQuery] = useState('')
+  const [debouncedCinemaId, setDebouncedCinemaId] = useState('')
   const [cinemaId, setCinemaId] = useState('')
   const [cinemaFilms, setCinemaFilms] = useState([])
-  const [genreCoords, setGenreCoords] = useState<number[]>([])
   const [isOpenGenre, setIsOpenGenre] = useState(false)
   const [isOpenCinema, setIsOpenCinema] = useState(false)
   const { data, isLoading, error } = useGetMoviesQuery({})
-  const cinemaData = useGetCinemaQuery(cinemaId)
+
   const titleRef = useRef<HTMLInputElement>(null)
   const genreRef = useRef<HTMLInputElement>(null)
   const cinemaRef = useRef<HTMLInputElement>(null)
-  const dispatch = useDispatch()
+  const debouncedQuery = useDebounce(titleQuery, 100)
+  const debouncedQueryCinema = useDebounce(cinemaId, 300)
+  const cinemaData = useGetCinemaQuery(debouncedCinemaId)
 
   useEffect(() => {
     setList(data)
@@ -36,12 +39,17 @@ export default function Home() {
   useEffect(() => {
     if (cinemaData) setCinemaFilms(cinemaData.data)
   }, [cinemaData, cinemaQuery, cinemaId])
+  useEffect(() => {
+    setDebouncedTitleQuery(debouncedQuery)
+  }, [debouncedQuery])
+  useEffect(() => {
+    setDebouncedCinemaId(debouncedQueryCinema)
+  }, [debouncedQueryCinema])
+
   if (isLoading) {
     return (
       <main>
-        <span>
-          Подождем...
-        </span>
+        <span>Подождем...</span>
       </main>
     )
   }
@@ -50,7 +58,7 @@ export default function Home() {
   if (!!list) {
     filtered = list?.slice()
     if (Boolean(cinemaQuery.length)) filtered = cinemaFilms
-    if (Boolean(titleQuery.length))
+    if (Boolean(debouncedTitleQuery.length))
       filtered = filter(filtered, 'title', titleQuery)
     if (Boolean(genreQuery.length))
       filtered = filter(filtered, 'genre', genreQuery)
