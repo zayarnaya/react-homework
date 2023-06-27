@@ -82,9 +82,11 @@ export default function Home() {
           }}
           makeEmptyQuery={e => {
             setGenreQuery('')
+            setIsOpenGenre(!isOpenGenre)
           }}
           makeQuery={e => {
             setGenreQuery((e.target as Element).id)
+            setIsOpenGenre(!isOpenGenre)
           }}
           ref={genreRef}
           genreQuery={genreQuery}
@@ -99,10 +101,12 @@ export default function Home() {
           makeEmptyQuery={() => {
             setCinemaQuery('')
             setCinemaId('')
+            setIsOpenCinema(!isOpenCinema)
           }}
           makeQuery={e => {
             setCinemaQuery((e.target as Element).textContent || '')
             setCinemaId((e.target as Element).id)
+            setIsOpenCinema(!isOpenCinema)
           }}
           ref={cinemaRef}
           cinemaQuery={cinemaQuery}
